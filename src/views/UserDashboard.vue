@@ -1,29 +1,11 @@
 <template>
   <div class="min-h-screen flex flex-col bg-gray-50">
-    <!-- Admin Navbar -->
-    <nav class="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <h1 class="text-xl font-bold text-gray-800">IKP-APBD Admin</h1>
-        </div>
-        <div class="flex items-center space-x-4">
-          <span class="text-sm text-gray-600">
-            Selamat datang, {{ user?.username }}
-          </span>
-          <button 
-            @click="handleLogout"
-            class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors font-medium"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
-    </nav>
+
 
     <div class="flex flex-1">
       <!-- Sidebar -->
-      <SidebarAdmin />
-      
+      <SidebarUser />
+
       <!-- Main Content -->
       <main class="flex-1 bg-white p-8">
         <div class="max-w-7xl mx-auto">
@@ -111,13 +93,13 @@
 </template>
 
 <script>
-import SidebarAdmin from '../components/SidebarAdmin.vue'
+import SidebarUser from '../components/SidebarUser.vue'
 import authStore from '../store/auth.js'
 
 export default {
-  name: 'AdminDashboard',
+  name: 'UserDashboard',
   components: {
-    SidebarAdmin
+    SidebarUser
   },
   computed: {
     user() {

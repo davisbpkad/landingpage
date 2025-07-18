@@ -3,7 +3,7 @@
     <div class="min-h-screen flex flex-col">
       <Navbar />
       <div class="flex flex-1">
-        <SidebarAdmin />
+        <SidebarUser />
         <main class="flex-1 bg-white p-8">
           <h2 class="text-2xl font-bold mb-4">Dinas Penanaman Modal dan Perizinan Terpadu Satu Pintu</h2>
           <h3 class="text-lg font-semibold mb-6">31 December 2024</h3>
@@ -38,6 +38,6 @@
   
   <script setup>
   import Navbar from '../components/Navbar.vue'
-  import SidebarAdmin from '../components/SidebarAdmin.vue'
+  import SidebarAdmin from './SidebarUser.vue'
   import Footer from '../components/Footer.vue'
   </script>

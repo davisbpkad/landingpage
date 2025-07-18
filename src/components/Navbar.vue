@@ -11,10 +11,10 @@
         </router-link>
       </div>
       
-      <!-- Admin Title when authenticated -->
+      <!-- User Title when authenticated -->
       <div v-if="isAuthenticated" class="flex items-center">
         <h1 class="text-2xl text-center bg-blue-500 text-white px-4 py-2 rounded-lg font-bold uppercase tracking-wide">
-          Admin Panel
+          User Panel
         </h1>
       </div>
       
@@ -32,12 +32,11 @@
         <!-- Login/Logout Button -->
         <div v-if="isAuthenticated" class="flex items-center space-x-4">
           <router-link 
-            to="/admin" 
-            class="w-32 text-center bg-blue-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
+            to="/user" 
+            class="w-32 text-center !text-black px-4 py-2 rounded-lg font-bold uppercase tracking-wide"
           >
-            Admin
+            Hi, User
           </router-link>
-          <span class="text-sm text-black-600">Hi, {{ user?.username }}</span>
           <button 
             @click="handleLogout"
             class="w-32 text-center bg-red-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
@@ -83,11 +82,11 @@
         
         <div v-if="isAuthenticated" class="space-y-2">
           <router-link 
-            to="/admin" 
+            to="/user" 
             @click="showMobileMenu = false"
             class="block w-full bg-blue-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold text-center"
           >
-            Admin Dashboard
+            User Dashboard
           </router-link>
           <div class="text-center text-sm text-gray-600 mb-2">
             Hai, {{ user?.username }}
@@ -148,7 +147,7 @@ export default {
         
         if (result.success) {
           this.showLoginForm = false
-          this.$router.push('/admin')
+          this.$router.push('/user')
         } else {
           console.error('Login failed:', result.message)
         }

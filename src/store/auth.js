@@ -21,11 +21,11 @@ const authStore = reactive({
   login(credentials) {
     // Dalam implementasi nyata, ini akan memanggil API
     // Untuk demo, kita gunakan kredensial sederhana
-    if (credentials.username === 'admin' && credentials.password === 'admin123') {
+    if (credentials.username === 'user' && credentials.password === 'user123') {
       const user = {
         id: 1,
         username: credentials.username,
-        role: 'admin'
+        role: 'user'
       }
       const token = 'demo-token-' + Date.now()
       

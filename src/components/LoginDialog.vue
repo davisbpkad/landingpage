@@ -65,9 +65,9 @@
         </form>
         <div class="mt-4 text-center text-xs text-gray-600">
           <div class="bg-blue-50 border border-blue-200 rounded p-2 mb-2">
-            <p class="font-semibold text-blue-800">Demo Kredensial:</p>
-            <p class="text-blue-700">Username: admin</p>
-            <p class="text-blue-700">Password: admin123</p>
+            <p class="font-semibold text-blue-800">Demo User Kredensial:</p>
+            <p class="text-blue-700">Username: user</p>
+            <p class="text-blue-700">Password: user123</p>
           </div>
           Belum punya akun? <a href="#" class="underline underline-offset-4">Daftar</a>
         </div>
