@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white border-t-4 border-black py-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+  <footer class="bg-white border-t-4 border-black py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       
       <!-- Copyright Section -->

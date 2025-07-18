@@ -1,11 +1,11 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 bg-white border-b-4 border-black px-4 py-3 z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+  <nav class="fixed top-0 left-0 right-0 bg-white border-b-4 border-black px-4 py-5 z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <!-- Brand/Logo with Badge Style -->
       <div class="flex items-center">
         <router-link 
           to="/" 
-          class="bg-white-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-bold text-lg"
+          class="text-2xl text-center bg-white !text-black px-4 py-2 rounded-lg font-bold uppercase tracking-wide"
         >
           IKP-APBD
         </router-link>
@@ -16,7 +16,7 @@
         <!-- FAQ Link -->
         <router-link 
           to="/faq" 
-          class="w-32 text-center bg-white text-black px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
+          class="w-32 text-center bg-white !text-black px-4 py-2 rounded-lg font-bold uppercase tracking-wide"
         >
           FAQ
         </router-link>
@@ -45,12 +45,12 @@
     </div>
     
     <!-- Mobile Menu -->
-    <div v-if="showMobileMenu" class="md:hidden bg-white border-t-2 border-black">
+    <div v-if="showMobileMenu" class="md:hidden bg-white border-t-2 border-black mt-4">
       <div class="p-4 space-y-3">
         <router-link 
           to="/faq" 
           @click="showMobileMenu = false"
-          class="block w-full bg-white text-black px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold text-center"
+          class="block w-full bg-white text-black px-4 py-2 transition-all duration-200 font-semibold text-center"
         >
           FAQ
         </router-link>

@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 pt-16 flex flex-col items-center">
     <main class="w-full max-w-2xl px-4 sm:px-6 py-8">
-      <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Frequently Asked Questions</h1>
+      <h1 class="text-3xl font-bold text-gray-800 mt-16 mb-8 text-center">Frequently Asked Questions</h1>
       <div class="w-full">
         <div v-for="(item, idx) in faqs" :key="idx" class="mb-4">
           <button

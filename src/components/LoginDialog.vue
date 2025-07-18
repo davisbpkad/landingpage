@@ -6,70 +6,60 @@
       @click="$emit('close')"
     ></div>
     
-    <!-- Dialog Content -->
-    <div class="relative bg-white rounded-lg shadow-2xl border-4 border-black transform transition-all duration-200 ease-out w-full max-w-md mx-4">
-      <!-- Dialog Header -->
-      <div class="flex items-center justify-between p-6 border-b-4 border-black">
-        <div>
-          <h2 class="text-2xl font-bold text-black">Login</h2>
-          <p class="text-gray-600 mt-1">Masuk ke sistem IKP-APBD</p>
-        </div>
-        <button 
-          @click="$emit('close')"
-          class="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
-        >
-          ✕
-        </button>
+    <!-- Card Dialog Content -->
+    <div class="relative w-full max-w-sm mx-4 bg-white rounded-xl border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col">
+      <!-- Card Header -->
+      <div class="border-b-4 border-black p-6">
+        <h2 class="text-2xl font-bold text-black mb-1">Login ke Akun Anda</h2>
+        <p class="text-gray-600 text-sm">Masukkan email dan password untuk login ke sistem</p>
       </div>
-      
-      <!-- Dialog Body -->
-      <div class="p-6">
-        <form @submit.prevent="handleSubmit" class="space-y-4">
-          <div class="space-y-2">
-            <label for="username" class="text-sm font-semibold text-black block">
-              Username
-            </label>
+      <!-- Card Content -->
+      <div class="p-6 flex-1">
+        <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
+          <div class="grid gap-2">
+            <label for="email" class="text-sm font-semibold text-black">Email</label>
             <input
               v-model="username"
-              id="username"
-              type="text"
+              id="email"
+              type="email"
               required
-              class="w-full px-4 py-3 border-2 border-black rounded-lg bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all duration-200 focus:outline-none"
-              placeholder="Masukkan username"
+              class="w-full px-4 py-3 border-2 border-black rounded-lg bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] transition-all duration-200 focus:outline-none"
+              placeholder="you@email.com"
             />
           </div>
-          
-          <div class="space-y-2">
-            <label for="password" class="text-sm font-semibold text-black block">
-              Password
-            </label>
+          <div class="grid gap-2">
+            <div class="flex items-center">
+              <label for="password" class="text-sm font-semibold text-black">Password</label>
+              <a href="#" class="ml-auto inline-block text-xs underline underline-offset-4 hover:text-blue-600">Lupa password?</a>
+            </div>
             <input
               v-model="password"
               id="password"
               type="password"
               required
-              class="w-full px-4 py-3 border-2 border-black rounded-lg bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] focus:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[2px] focus:translate-y-[2px] transition-all duration-200 focus:outline-none"
+              class="w-full px-4 py-3 border-2 border-black rounded-lg bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] transition-all duration-200 focus:outline-none"
               placeholder="Masukkan password"
             />
           </div>
-          
-          <!-- Dialog Footer -->
-          <div class="flex gap-3 pt-4">
-            <button
-              type="button"
-              @click="$emit('close')"
-              class="flex-1 px-4 py-3 bg-gray-200 text-black font-semibold rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
-            >
-              Batal
-            </button>
+          <div class="flex flex-col gap-2 mt-2">
             <button
               type="submit"
-              class="flex-1 px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
+              class="w-full px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
             >
               Login
             </button>
+            <button
+              type="button"
+              @click="$emit('close')"
+              class="w-full px-4 py-3 bg-gray-200 text-black font-semibold rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
+            >
+              Batal
+            </button>
           </div>
         </form>
+        <div class="mt-4 text-center text-xs text-gray-600">
+          Belum punya akun? <a href="#" class="underline underline-offset-4">Daftar</a>
+        </div>
       </div>
     </div>
   </div>
