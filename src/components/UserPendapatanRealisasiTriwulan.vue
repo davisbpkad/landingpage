@@ -2,10 +2,9 @@
   <div class="p-8">
     <div class="max-w-7xl mx-auto">
       <div class="mb-8">
-        <h2 class="text-2xl font-bold mb-2">Realisasi Anggaran Pendapatan</h2>
-        <h3 class="text-lg font-semibold mb-6 text-gray-600">31 December 2024</h3>
+        <h2 class="text-2xl font-bold mb-2">Realisasi Anggaran Pendapatan Triwulan</h2>
+        <h3 class="text-lg font-semibold mb-6 text-gray-600">31 Maret 2024</h3>
       </div>
-
       <!-- Summary Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
@@ -13,24 +12,21 @@
           <p class="text-3xl font-bold text-blue-600">Rp 0,00</p>
           <p class="text-sm text-blue-600 mt-1">Target pendapatan</p>
         </div>
-        
         <div class="bg-green-50 border border-green-200 rounded-lg p-6">
-          <h4 class="text-lg font-semibold text-green-800 mb-2">Realisasi</h4>
+          <h4 class="text-lg font-semibold text-green-800 mb-2">Realisasi Triwulan</h4>
           <p class="text-3xl font-bold text-green-600">Rp 0,00</p>
-          <p class="text-sm text-green-600 mt-1">Pendapatan terealisasi</p>
+          <p class="text-sm text-green-600 mt-1">Pendapatan terealisasi triwulan</p>
         </div>
-        
         <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
           <h4 class="text-lg font-semibold text-yellow-800 mb-2">Persentase</h4>
           <p class="text-3xl font-bold text-yellow-600">0%</p>
-          <p class="text-sm text-yellow-600 mt-1">Capaian realisasi</p>
+          <p class="text-sm text-yellow-600 mt-1">Capaian realisasi triwulan</p>
         </div>
       </div>
-
       <!-- Form Section -->
       <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-8">
         <div class="px-6 py-4 border-b border-gray-200">
-          <h3 class="text-lg font-semibold text-gray-800">Input Realisasi Pendapatan</h3>
+          <h3 class="text-lg font-semibold text-gray-800">Input Realisasi Pendapatan Triwulan</h3>
         </div>
         <div class="p-6">
           <form class="space-y-6">
@@ -70,7 +66,7 @@
                 <input
                   type="text"
                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Keterangan realisasi"
+                  placeholder="Keterangan realisasi triwulan"
                 />
               </div>
             </div>
@@ -85,17 +81,16 @@
                 type="submit"
                 class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
               >
-                Simpan Realisasi
+                Simpan Realisasi Triwulan
               </button>
             </div>
           </form>
         </div>
       </div>
-
       <!-- Data Table -->
       <div class="bg-white rounded-lg shadow-sm border border-gray-200">
         <div class="px-6 py-4 border-b border-gray-200">
-          <h3 class="text-lg font-semibold text-gray-800">Data Realisasi Pendapatan</h3>
+          <h3 class="text-lg font-semibold text-gray-800">Data Realisasi Pendapatan Triwulan</h3>
         </div>
         <div class="overflow-x-auto">
           <table class="min-w-full divide-y divide-gray-200">
@@ -111,7 +106,7 @@
                   Anggaran
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Realisasi
+                  Realisasi Triwulan
                 </th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Persentase
@@ -124,7 +119,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
               <tr>
                 <td colspan="6" class="px-6 py-8 text-center text-gray-500">
-                  Belum ada data realisasi pendapatan
+                  Belum ada data realisasi pendapatan triwulan
                 </td>
               </tr>
             </tbody>
@@ -137,6 +132,6 @@
 
 <script>
 export default {
-  name: 'UserPendapatanRealisasi'
+  name: 'UserPendapatanRealisasiTriwulan'
 }
-</script>
+</script> 

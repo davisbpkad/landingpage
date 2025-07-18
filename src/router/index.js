@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import authStore from '../store/auth.js'
+import FaqView from '../views/FaqView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,6 +10,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: FaqView,
     },
     {
       path: '/user',
@@ -21,19 +27,19 @@ const router = createRouter({
           component: () => import('../components/UserContent.vue'),
         },
         {
-          path: 'resume',
-          name: 'user-resume',
-          component: () => import('../components/UserResume.vue'),
-        },
-        {
           path: 'pendapatan/anggaran',
           name: 'user-pendapatan-anggaran',
           component: () => import('../components/UserPendapatanAnggaran.vue'),
         },
         {
-          path: 'pendapatan/realisasi',
-          name: 'user-pendapatan-realisasi',
-          component: () => import('../components/UserPendapatanRealisasi.vue'),
+          path: 'pendapatan/realisasi-triwulan',
+          name: 'user-pendapatan-realisasitriwulan',
+          component: () => import('../components/UserPendapatanRealisasiTriwulan.vue'),
+        },
+        {
+          path: 'pendapatan/realisasi-tahunan',
+          name: 'user-pendapatan-realisasitahunan',
+          component: () => import('../components/UserPendapatanRealisasiTahunan.vue'),
         },
         {
           path: 'belanja/perencanaan',
