@@ -3,7 +3,7 @@
     <Navbar />
     <div class="flex flex-1">
       <SidebarUser />
-      <UserContent />
+      <RouterView />
     </div>
   </div>
 </template>
@@ -11,6 +11,5 @@
 <script setup>
 import Navbar from '../components/Navbar.vue'
 import SidebarUser from '../components/SidebarUser.vue'
-
-import UserContent from '../components/UserContent.vue'
+import { RouterView } from 'vue-router'
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <main class="flex-1 bg-white p-8">
+    <div class="p-8">
         <div class="max-w-7xl mx-auto">
           <div class="mb-8">
             <h2 class="text-2xl font-bold mb-2">Dinas Penanaman Modal dan Perizinan Terpadu Satu Pintu</h2>
@@ -79,5 +79,11 @@
             </div>
           </div>
         </div>
-      </main>
+    </div>
 </template>
+
+<script>
+export default {
+  name: 'UserContent'
+}
+</script>

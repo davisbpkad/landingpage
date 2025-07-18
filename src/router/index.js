@@ -22,16 +22,46 @@ const router = createRouter({
     },
     {
       path: '/user',
-      name: 'user',
-      component: () => import('../views/UserDashboard.vue'),
-      meta: { requiresAuth: true }
+      component: () => import('../views/UserLayout.vue'),
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '',
+          name: 'user-dashboard',
+          component: () => import('../components/UserContent.vue'),
+        },
+        {
+          path: 'resume',
+          name: 'user-resume',
+          component: () => import('../components/UserResume.vue'),
+        },
+        {
+          path: 'pendapatan/anggaran',
+          name: 'user-pendapatan-anggaran',
+          component: () => import('../components/UserPendapatanAnggaran.vue'),
+        },
+        {
+          path: 'pendapatan/realisasi',
+          name: 'user-pendapatan-realisasi',
+          component: () => import('../components/UserPendapatanRealisasi.vue'),
+        },
+        {
+          path: 'belanja/perencanaan',
+          name: 'user-belanja-perencanaan',
+          component: () => import('../components/UserBelanjaPerencanaan.vue'),
+        },
+        {
+          path: 'belanja/pelaksanaan',
+          name: 'user-belanja-pelaksanaan',
+          component: () => import('../components/UserBelanjaPelaksanaan.vue'),
+        },
+        {
+          path: 'belanja/output',
+          name: 'user-belanja-output',
+          component: () => import('../components/UserBelanjaOutput.vue'),
+        }
+      ]
     },
-    {
-      path: '/user/dashboard',
-      name: 'user-dashboard',
-      component: () => import('../views/UserDashboard.vue'),
-      meta: { requiresAuth: true }
-    }
   ],
 })
 
