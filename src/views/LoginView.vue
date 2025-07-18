@@ -15,6 +15,7 @@
 
 <script>
 import LoginForm from '../components/LoginForm.vue'
+import authStore from '../store/auth.js'
 
 export default {
   name: 'LoginView',
@@ -22,10 +23,19 @@ export default {
     LoginForm
   },
   methods: {
-    onLogin({ username, password }) {
-      // Handle login logic here
-      console.log('Login attempt:', { username, password })
-      this.$emit('close')
+    onLogin(credentials) {
+      if (credentials.success) {
+        // Lakukan login dengan authStore
+        const result = authStore.login(credentials)
+        
+        if (result.success) {
+          // Redirect ke admin dashboard
+          this.$router.push('/admin')
+          this.$emit('close')
+        } else {
+          console.error('Login failed:', result.message)
+        }
+      }
     }
   }
 }

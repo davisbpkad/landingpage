@@ -17,14 +17,14 @@
       <div class="p-6 flex-1">
         <form @submit.prevent="handleSubmit" class="flex flex-col gap-6">
           <div class="grid gap-2">
-            <label for="email" class="text-sm font-semibold text-black">Email</label>
+            <label for="username" class="text-sm font-semibold text-black">Username</label>
             <input
               v-model="username"
-              id="email"
-              type="email"
+              id="username"
+              type="text"
               required
               class="w-full px-4 py-3 border-2 border-black rounded-lg bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] focus:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] focus:translate-x-[1px] focus:translate-y-[1px] transition-all duration-200 focus:outline-none"
-              placeholder="you@email.com"
+              placeholder="Masukkan username"
             />
           </div>
           <div class="grid gap-2">
@@ -41,12 +41,18 @@
               placeholder="Masukkan password"
             />
           </div>
+          
+          <div v-if="error" class="text-red-600 text-sm">
+            {{ error }}
+          </div>
+          
           <div class="flex flex-col gap-2 mt-2">
             <button
               type="submit"
-              class="w-full px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200"
+              :disabled="isLoading"
+              class="w-full px-4 py-3 bg-blue-500 text-white font-semibold rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] transition-all duration-200 disabled:opacity-50"
             >
-              Login
+              {{ isLoading ? 'Loading...' : 'Login' }}
             </button>
             <button
               type="button"
@@ -58,6 +64,11 @@
           </div>
         </form>
         <div class="mt-4 text-center text-xs text-gray-600">
+          <div class="bg-blue-50 border border-blue-200 rounded p-2 mb-2">
+            <p class="font-semibold text-blue-800">Demo Kredensial:</p>
+            <p class="text-blue-700">Username: admin</p>
+            <p class="text-blue-700">Password: admin123</p>
+          </div>
           Belum punya akun? <a href="#" class="underline underline-offset-4">Daftar</a>
         </div>
       </div>
@@ -66,6 +77,8 @@
 </template>
 
 <script>
+import authStore from '../store/auth.js'
+
 export default {
   name: 'LoginDialog',
   props: {
@@ -77,17 +90,41 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      error: '',
+      isLoading: false
     }
   },
   methods: {
-    handleSubmit() {
-      this.$emit('login', {
-        username: this.username,
-        password: this.password
-      })
-      this.username = ''
-      this.password = ''
+    async handleSubmit() {
+      this.error = ''
+      this.isLoading = true
+      
+      try {
+        // Simulasi delay
+        await new Promise(resolve => setTimeout(resolve, 500))
+        
+        const result = authStore.login({
+          username: this.username,
+          password: this.password
+        })
+        
+        if (result.success) {
+          this.$emit('login', {
+            username: this.username,
+            password: this.password,
+            success: true
+          })
+          this.username = ''
+          this.password = ''
+        } else {
+          this.error = result.message
+        }
+      } catch (error) {
+        this.error = 'Terjadi kesalahan saat login'
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 }

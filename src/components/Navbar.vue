@@ -1,8 +1,8 @@
 <template>
   <nav class="fixed top-0 left-0 right-0 bg-white border-b-4 border-black px-4 py-5 z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <!-- Brand/Logo with Badge Style -->
-      <div class="flex items-center">
+      <!-- Brand/Logo with Badge Style - Hidden when authenticated -->
+      <div v-if="!isAuthenticated" class="flex items-center">
         <router-link 
           to="/" 
           class="text-2xl text-center bg-white !text-black px-4 py-2 rounded-lg font-bold uppercase tracking-wide"
@@ -11,18 +11,42 @@
         </router-link>
       </div>
       
+      <!-- Admin Title when authenticated -->
+      <div v-if="isAuthenticated" class="flex items-center">
+        <h1 class="text-2xl text-center bg-blue-500 text-white px-4 py-2 rounded-lg font-bold uppercase tracking-wide">
+          Admin Panel
+        </h1>
+      </div>
+      
       <!-- Desktop Menubar -->
       <div class="hidden md:flex items-center space-x-4">
-        <!-- FAQ Link -->
+        <!-- FAQ Link - Hidden when authenticated -->
         <router-link 
+          v-if="!isAuthenticated"
           to="/faq" 
           class="w-32 text-center bg-white !text-black px-4 py-2 rounded-lg font-bold uppercase tracking-wide"
         >
           FAQ
         </router-link>
         
-        <!-- Login Button -->
+        <!-- Login/Logout Button -->
+        <div v-if="isAuthenticated" class="flex items-center space-x-4">
+          <router-link 
+            to="/admin" 
+            class="w-32 text-center bg-blue-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
+          >
+            Admin
+          </router-link>
+          <span class="text-sm text-black-600">Hi, {{ user?.username }}</span>
+          <button 
+            @click="handleLogout"
+            class="w-32 text-center bg-red-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
+          >
+            Logout
+          </button>
+        </div>
         <button 
+          v-else
           @click="showLoginForm = true"
           class="w-32 text-center bg-green-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
         >
@@ -47,7 +71,9 @@
     <!-- Mobile Menu -->
     <div v-if="showMobileMenu" class="md:hidden bg-white border-t-2 border-black mt-4">
       <div class="p-4 space-y-3">
+        <!-- FAQ Link - Hidden when authenticated -->
         <router-link 
+          v-if="!isAuthenticated"
           to="/faq" 
           @click="showMobileMenu = false"
           class="block w-full bg-white text-black px-4 py-2 transition-all duration-200 font-semibold text-center"
@@ -55,7 +81,26 @@
           FAQ
         </router-link>
         
+        <div v-if="isAuthenticated" class="space-y-2">
+          <router-link 
+            to="/admin" 
+            @click="showMobileMenu = false"
+            class="block w-full bg-blue-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold text-center"
+          >
+            Admin Dashboard
+          </router-link>
+          <div class="text-center text-sm text-gray-600 mb-2">
+            Hai, {{ user?.username }}
+          </div>
+          <button 
+            @click="handleLogout; showMobileMenu = false"
+            class="w-full bg-red-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
+          >
+            Logout
+          </button>
+        </div>
         <button 
+          v-else
           @click="showLoginForm = true; showMobileMenu = false"
           class="w-full bg-green-500 text-white px-4 py-2 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200 font-semibold"
         >
@@ -75,6 +120,7 @@
 
 <script>
 import LoginDialog from './LoginDialog.vue'
+import authStore from '../store/auth.js'
 
 export default {
   name: 'Navbar',
@@ -87,11 +133,30 @@ export default {
       showMobileMenu: false
     }
   },
+  computed: {
+    isAuthenticated() {
+      return authStore.isAuthenticated
+    },
+    user() {
+      return authStore.user
+    }
+  },
   methods: {
     handleLogin(credentials) {
-      // Handle login logic here
-      console.log('Login attempt:', credentials)
-      this.showLoginForm = false
+      if (credentials.success) {
+        const result = authStore.login(credentials)
+        
+        if (result.success) {
+          this.showLoginForm = false
+          this.$router.push('/admin')
+        } else {
+          console.error('Login failed:', result.message)
+        }
+      }
+    },
+    handleLogout() {
+      authStore.logout()
+      this.$router.push('/')
     },
     handleEscapeKey(event) {
       if (event.key === 'Escape' && this.showLoginForm) {

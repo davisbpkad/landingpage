@@ -1,6 +1,3 @@
-<script setup>
-</script>
-
 <template>
   <div class="min-h-screen bg-gradient-to-br from-blue-200 via-white to-purple-200 flex flex-col items-center pt-24 pb-12 mt-12">
     <!-- Hero Section -->
@@ -34,3 +31,7 @@
     </section>
   </div>
 </template>
+
+<script setup>
+</script>
+
