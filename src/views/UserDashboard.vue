@@ -3,7 +3,7 @@
     <Navbar />
     <div class="flex flex-1">
       <SidebarUser />
-      <UserContent /> asd
+      <UserContent />
     </div>
   </div>
 </template>
