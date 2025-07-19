@@ -50,9 +50,12 @@
             <div class="py-1">
               <button 
                 @click="logout"
-                class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                class="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
-                Logout
+                <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+                Keluar
               </button>
             </div>
           </div>
@@ -88,9 +91,14 @@ export default {
     }
 
     const logout = () => {
+      console.log('Header: logout called')
       authStore.logout()
-      router.push('/')
       showUserMenu.value = false
+      // Delay redirect to show logout alert
+      setTimeout(() => {
+        console.log('Header: redirecting to login page')
+        router.push('/')
+      }, 1000)
     }
 
     // Close user menu when clicking outside

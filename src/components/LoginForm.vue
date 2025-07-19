@@ -122,7 +122,7 @@ export default {
     const showPassword = ref(false)
     const formData = reactive({
       email: 'user@ikp-apbd.com',
-      password: '',
+      password: 'user123',
       rememberMe: false
     })
 

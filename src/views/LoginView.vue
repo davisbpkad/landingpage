@@ -36,22 +36,6 @@
           </p>
         </div>
 
-
-
-        <!-- Error Message -->
-        <div v-if="errorMessage" class="bg-red-50 border border-red-200 rounded-md p-4 mb-4">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <svg class="h-5 w-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div class="ml-3">
-              <p class="text-sm text-red-800">{{ errorMessage }}</p>
-            </div>
-          </div>
-        </div>
-
         <!-- Login Form -->
         <LoginForm @submit="handleLogin" />
       </div>
@@ -64,7 +48,6 @@
 
 <script>
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
 import LoginForm from '@/components/LoginForm.vue'
 import BrandingPanel from '@/components/BrandingPanel.vue'
 import { authStore } from '@/store/auth.js'
@@ -77,20 +60,19 @@ export default {
   },
   setup() {
     const router = useRouter()
-    const errorMessage = ref('')
 
     const handleLogin = (formData) => {
+      console.log('LoginView: handleLogin called with:', formData)
       const result = authStore.login(formData.email, formData.password)
+      console.log('LoginView: login result:', result)
       if (result.success) {
+        console.log('LoginView: redirecting to dashboard')
         router.push('/dashboard')
-      } else {
-        errorMessage.value = result.message
       }
     }
 
     return {
-      handleLogin,
-      errorMessage
+      handleLogin
     }
   }
 }
