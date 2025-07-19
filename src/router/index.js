@@ -4,6 +4,7 @@ import FaqView from '@/views/FaqView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import HomeView from '@/views/HomeView.vue'
 import PendapatanResultView from '@/views/PendapatanResultView.vue'
+import BelanjaResultView from '@/views/BelanjaResultView.vue'
 import FormElementsView from '@/views/FormElementsView.vue'
 import { authStore } from '@/store/auth.js'
 
@@ -77,7 +78,7 @@ const router = createRouter({
     {
       path: '/belanja/belanjaresult',
       name: 'belanja-result',
-      component: DashboardView,
+      component: BelanjaResultView,
       meta: { requiresAuth: true }
     }
   ],
