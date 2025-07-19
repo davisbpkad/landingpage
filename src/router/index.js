@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '@/views/LoginView.vue'
 import FaqView from '@/views/FaqView.vue'
 import DashboardView from '@/views/DashboardView.vue'
+import HomeView from '@/views/HomeView.vue'
+import PendapatanResultView from '@/views/PendapatanResultView.vue'
 import FormElementsView from '@/views/FormElementsView.vue'
 import { authStore } from '@/store/auth.js'
 
@@ -21,7 +23,7 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: DashboardView,
+      component: HomeView,
       meta: { requiresAuth: true }
     },
     {
@@ -51,7 +53,7 @@ const router = createRouter({
     {
       path: '/pendapatan/pendapatanresult',
       name: 'pendapatan-result',
-      component: DashboardView,
+      component: PendapatanResultView,
       meta: { requiresAuth: true }
     },
     {

@@ -20,7 +20,7 @@
           </svg>
           <input 
             type="text" 
-            placeholder="Search or type command..." 
+            placeholder="Search..." 
             class="bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400 w-full"
           >
         </div>
