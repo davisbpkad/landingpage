@@ -1,20 +1,29 @@
 <template>
-  <footer class="bg-white border-t-4 border-black py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      
-      <!-- Copyright Section -->
-
-        <div class="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
-          <p class="text-gray-700 font-medium text-center sm:text-left">
-            © 2025 IKP-APBD. Semua hak cipta dilindungi.
-          </p>
-          <div class="flex items-center space-x-4">
-            <span class="bg-white-400 text-black px-3 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-sm font-semibold">
-              v1.0.0
-            </span>
-          </div>
-        </div>
+  <footer class="bg-white border-t border-gray-200 px-4 py-6 lg:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+      <!-- Copyright -->
+      <div class="text-sm text-gray-600">
+        © 2024 IKP-APBD. All rights reserved.
       </div>
+
+      <!-- Links -->
+      <div class="flex items-center space-x-6 text-sm text-gray-600">
+        <a href="#" class="hover:text-gray-900 transition-colors duration-200">
+          Privacy Policy
+        </a>
+        <a href="#" class="hover:text-gray-900 transition-colors duration-200">
+          Terms of Service
+        </a>
+        <a href="#" class="hover:text-gray-900 transition-colors duration-200">
+          Contact Support
+        </a>
+      </div>
+
+      <!-- Version -->
+      <div class="text-sm text-gray-500">
+        v1.0.0
+      </div>
+    </div>
   </footer>
 </template>
 
@@ -22,4 +31,4 @@
 export default {
   name: 'Footer'
 }
-</script>
+</script> 
