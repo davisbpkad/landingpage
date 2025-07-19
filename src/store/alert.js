@@ -16,9 +16,7 @@ export const alertStore = {
       autoClose: alert.autoClose !== false
     }
     
-    console.log('Adding alert to store:', newAlert)
     this.alerts.value.push(newAlert)
-    console.log('Current alerts in store:', this.alerts.value)
     
     // Auto remove after duration
     if (newAlert.autoClose && newAlert.duration > 0) {
@@ -45,7 +43,6 @@ export const alertStore = {
   
   // Success alert
   success(title, message = '', duration = 4000) {
-    console.log('alertStore.success called:', title, message)
     return this.addAlert({
       type: 'success',
       title,
@@ -56,7 +53,6 @@ export const alertStore = {
   
   // Error alert
   error(title, message = '', duration = 4000) {
-    console.log('alertStore.error called:', title, message)
     return this.addAlert({
       type: 'error',
       title,

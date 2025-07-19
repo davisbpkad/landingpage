@@ -36,6 +36,8 @@
           </p>
         </div>
 
+      
+
         <!-- Login Form -->
         <LoginForm @submit="handleLogin" />
       </div>
@@ -51,6 +53,7 @@ import { useRouter } from 'vue-router'
 import LoginForm from '@/components/LoginForm.vue'
 import BrandingPanel from '@/components/BrandingPanel.vue'
 import { authStore } from '@/store/auth.js'
+import { alertStore } from '@/store/alert.js'
 
 export default {
   name: 'LoginView',
@@ -62,17 +65,19 @@ export default {
     const router = useRouter()
 
     const handleLogin = (formData) => {
-      console.log('LoginView: handleLogin called with:', formData)
       const result = authStore.login(formData.email, formData.password)
-      console.log('LoginView: login result:', result)
       if (result.success) {
-        console.log('LoginView: redirecting to dashboard')
         router.push('/dashboard')
       }
     }
 
+    const testAlert = () => {
+      alertStore.success('Test Alert!', 'Ini adalah test alert untuk memastikan sistem berfungsi.')
+    }
+
     return {
-      handleLogin
+      handleLogin,
+      testAlert
     }
   }
 }

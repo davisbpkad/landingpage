@@ -91,12 +91,10 @@ export default {
     }
 
     const logout = () => {
-      console.log('Header: logout called')
       authStore.logout()
       showUserMenu.value = false
       // Delay redirect to show logout alert
       setTimeout(() => {
-        console.log('Header: redirecting to login page')
         router.push('/')
       }, 1000)
     }

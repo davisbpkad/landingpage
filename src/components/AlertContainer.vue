@@ -35,8 +35,6 @@ export default {
     Alert
   },
   setup() {
-    console.log('AlertContainer: setup called, alerts:', alertStore.alerts.value)
-    
     const alerts = computed(() => alertStore.alerts.value)
     
     return {
