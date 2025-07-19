@@ -12,7 +12,7 @@
           type="email"
           required
           class="mt-1 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-          placeholder="info@gmail.com"
+          placeholder="Masukkan Email"
         />
       </div>
       <div>
@@ -27,7 +27,7 @@
             :type="showPassword ? 'text' : 'password'"
             required
             class="appearance-none relative block w-full px-3 py-2 pr-10 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-            placeholder="Enter your password"
+            placeholder="Masukkan Password"
           />
           <button
             type="button"
@@ -83,13 +83,13 @@
           class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
         />
         <label for="remember-me" class="ml-2 block text-sm text-gray-900">
-          Keep me logged in
+          Ingat saya
         </label>
       </div>
 
       <div class="text-sm">
         <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
-          Forgot password?
+          Lupa Password?
         </a>
       </div>
     </div>
@@ -97,16 +97,16 @@
     <div>
       <button
         type="submit"
-        class="group relative w-full flex justify-center py-3 px-6 border-2 border-black text-sm font-bold rounded-lg text-white bg-blue-400 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none transition-all duration-200 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px]"
+        class="group relative w-full flex justify-center py-3 px-6 border-2 border-black text-sm font-bold rounded-lg text-white bg-blue-500 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none transition-all duration-200 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px]"
       >
-        Sign In
+        Masuk
       </button>
     </div>
 
     <div class="text-center">
-      <span class="text-sm text-gray-600">Don't have an account?</span>
+      <span class="text-sm text-gray-600">Belum punya akun?</span>
       <a href="#" class="ml-1 text-sm font-medium text-blue-600 hover:text-blue-500">
-        Sign Up
+        Daftar
       </a>
     </div>
   </form>

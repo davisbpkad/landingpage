@@ -5,8 +5,13 @@
       <div class="max-w-md w-full space-y-8">
         <!-- FAQ Link -->
         <div class="text-left">
-          <RouterLink to="/faq" class="text-blue-600 hover:text-blue-800 font-medium">
-            ← FAQ
+          <RouterLink to="/faq" 
+          class="back-to-login-btn inline-flex items-center px-8 py-10 bg-white text-black text-sm font-bold hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none transition-all duration-200 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] !text-black"
+          style="color: black !important;">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+          </svg>
+          FAQ
           </RouterLink>
         </div>
 
