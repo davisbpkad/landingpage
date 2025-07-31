@@ -5,7 +5,10 @@
       <div class="text-left mb-6">
         <RouterLink 
           to="/" 
-          class="back-to-login-btn inline-flex items-center px-8 py-10 bg-white text-black text-sm font-bold hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none transition-all duration-200 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] active:translate-x-[3px] active:translate-y-[3px] !text-black"
+          class="back-to-login-btn inline-flex items-center px-8 py-10 bg-white text-black text-sm font-bold 
+          hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] 
+          focus:outline-none transition-all duration-200 active:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] 
+          active:translate-x-[3px] active:translate-y-[3px] !text-black"
           style="color: black !important;"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -20,14 +23,17 @@
         <div v-for="(item, idx) in faqs" :key="idx" class="mb-4">
           <button
             @click="toggle(idx)"
-            class="w-full flex justify-between items-center bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-6 py-4 font-semibold text-lg text-left transition-all duration-200 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none"
+            class="w-full flex justify-between items-center bg-white border-2 border-black rounded-lg 
+            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-6 py-4 font-semibold text-lg text-left transition-all duration-200 
+            hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:outline-none"
           >
             <span>{{ item.question }}</span>
             <span class="ml-4 text-2xl">{{ openIndex === idx ? '−' : '+' }}</span>
           </button>
           <div
             v-show="openIndex === idx"
-            class="bg-yellow-50 border-x-2 border-b-2 border-black rounded-b-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-6 py-4 text-gray-800 animate-fade-in"
+            class="bg-yellow-50 border-x-2 border-b-2 border-black rounded-b-lg 
+            shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] px-6 py-4 text-gray-800 animate-fade-out"
           >
             {{ item.answer }}
           </div>
